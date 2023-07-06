@@ -12,7 +12,7 @@
 .container{
     background: #fff;
     width: 100%;
-    height: 35vh;
+    height: 27vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,11 +135,16 @@ header ul li:hover::after{
   .rating label:hover ~ label {
     color: #ffbf00;
   }
+  .recipe-name {
+    font-size: 24px;
+    color: black;
+  }
+  
   
 footer {
   background-color: #d9d0d0;
   color: #fff;
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
   
 }
@@ -219,53 +224,67 @@ footer {
   border: #ecb1ec;
   background-color: #d9d0d0;
   text-align: left;
-  display: flex;
-  flex-direction:column;
+   display: flex; 
+   flex-direction:column; 
 }
 
 #recipe_name{
   height: 50px;
-  width: 500px;
-  backdrop-filter: blur(20px);
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  border: 1px solid rgba(42, 193, 100, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 4px 30px rgba(87, 153, 26, 0.8);
+}
+#recipe_name:hover{
+  padding: 20px;
+  border: 7px solid rgba(42, 193, 100, 0.8);
+  backdrop-filter: blur(1px);
 }
 #submit_btn{
   height: 50px;
   width: 50px;
-  backdrop-filter: blur(20px);
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(42, 193, 100, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 4px 30px rgba(87, 153, 26, 0.8);
+}
+#submit_btn:hover{
+  padding: 10px;
+  border: 4px solid rgba(42, 193, 100, 0.8);
+  backdrop-filter: blur(1px);
 }
 #btn_clear{
   height: 50px;
   width: 50px;
-  backdrop-filter: blur(20px);
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-#recipe_name{
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(242, 1, 1, 0.8);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   backdrop-filter: blur(1px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(242, 1, 1, 0.8);
 }
-#submit_btn{
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+#btn_clear:hover{
+  padding: 10px;
+  border: 4px solid rgba(242, 1, 1, 0.8);
   backdrop-filter: blur(1px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-#btn_clear{
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  backdrop-filter: blur(1px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-.card-container {
+.recipe-card-container{
   display: flex;
+  flex-wrap: wrap;
+}
+#myDropdown{
+  height: 50px;
+  width: 100px;
+  border: 1px solid rgba(42, 193, 100, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 4px 30px rgba(87, 153, 26, 0.8);
+}
+#myDropdown:hover{
+  padding: 10px;
+  border: 4px solid rgba(42, 193, 100, 0.8);
+  backdrop-filter: blur(1px);
 }

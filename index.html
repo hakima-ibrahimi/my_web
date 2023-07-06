@@ -12,25 +12,32 @@
     <link rel="icon" href="./pic/logo.png" type="img/x-icon">
   </head>
   <body>
+    
     <header>
       <div class="container">
         <a id="logo"><img src="./pic/logo.png"></a> 
-        
           <form>
             <div class="container1">
-              <input type="text" id="recipe_name">
-              <button id="submit_btn" placeholder="find your Recipes"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <input type="text" id="recipe_name" >
+              <button id="submit_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <select id="myDropdown">
+                <option value="Ingredient">Ingredient</option>
+                <option value="Country">Country</option>
+                <option value="Recipe-name">Recipe name</option>         
+            </select>
               <button id="btn_clear" type="button">Clear</button>
-              </a>  
-             </div>
-            </form>
+          </a>  
+       </div>
+      </form>
     </div>  
   </header>
-  <main><div id="display"></div> </main>
+   <main>
+    <div id="display"></div>
+   </main>
     <div class="container2">
        <div class="card">
           <img src="./pic/f.jpg" >
-            <h2>Salad</h2>
+            <h2>Ingredient</h2>
             <br><br><br><br>
               <div class="links">
                 <div class="rating">
@@ -45,7 +52,7 @@
        </div>
        <div class="card">
         <img src="./pic/v.jpg" >
-          <h2>Meal</h2>
+          <h2>Country</h2>
           <br><br><br><br>
             <div class="links">
               <div class="rating">
@@ -60,7 +67,7 @@
      </div>
      <div class="card">
       <img src="./pic/cake.jpg">
-        <h2>Desirt</h2>
+        <h2>Recipe name</h2>
         <br><br><br><br>
           <div class="links">
             <div class="rating">
@@ -94,7 +101,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2023 @AfghanCookingDiary </p>
+          <p>&copy; 2023 @Hakima's Recipes </p>
         </div>
       </footer>
   </body>

@@ -6,10 +6,12 @@ $(document).ready(() => {
   submitButton.on('click', (event) => {
     event.preventDefault();
     const recipe = $('#recipe_name').val();
-
+    let selectedOption = $('#myDropdown').val();
+     
     const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`;
-
-    console.log(recipe);
+    const countryURL = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${recipe}`;
+    const categoriesURL =`https://www.themealdb.com/api/json/v1/1/categories.php=${recipe}`;
+    const ingredientURL = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${recipe}`;   
 
     fetch(URL)
       .then((res) => res.json())
@@ -20,27 +22,60 @@ $(document).ready(() => {
       .catch((error) => {
         console.log('Oops:', error);
       });
+
+      if (selectedOption === "Ingredient") {
+        fetch(categoriesURL);
+      } else if (selectedOption === "Country") {
+        fetch(countryURL);
+      } else if (selectedOption === "Recipe name") {
+        fetch(ingredientURL);
+      }    
+      else{
+        console.log('Oops:', error);
+      }
   });
 
+  function displayCountryData(data) {
+    display.empty();
+    if (data.meals) {
+  }
+  const recipeContainer = $('<div class="recipe-container"></div>');
+
+    data.meals.forEach((meal) => {
+     const myCard = $(`<div class="recipe-card card">
+     <div class="card-img-top">
+       <h5 class="card-title recipe-name">${meal.strMeal}</h5>
+       <img src="${meal.strMealThumb}" alt="Meal Image">
+     </div>
+     <div class="card-body">
+     </div>
+   </div>
+ `);
+    };
   function displayRecipeData(data) {
     display.empty();
     if (data.meals) {
-      const row = $('<div class="row"></div>');
+      const recipeCardContainer = $('<div class="recipe-card-container"></div>');
 
       data.meals.forEach((meal) => {
         const recipeCard = $(`
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 recipe-card">
-            <div class="card">
-              <img class="card-img-top" src="${meal.strMealThumb}" alt="Meal Image">
-              <div class="card-body">
-                <h5 class="card-title">${meal.strMeal}</h5>
-                <button class="btn btn-primary show-details">Show Details</button>
-              </div>
+          <div class="recipe-card card">
+            <div class="card-img-top">
+              <h5 class="card-title recipe-name">${meal.strMeal}</h5>
+              <img src="${meal.strMealThumb}" alt="Meal Image">
+            </div>
+            <div class="card-body">
             </div>
           </div>
         `);
+        recipeCard.find('.recipe-name').css({
+          'font-size': '24px',
+          'color': 'black',
+          'text-align': 'center',
+          'margin-bottom': '10px'
+        });
 
-        recipeCard.find('.show-details').on('click', () => {
+        recipeCard.on('click', () => {
           display.empty();
 
           const ingredientsList = $(`
@@ -57,11 +92,10 @@ $(document).ready(() => {
 
           const recipeDetails = $(`
             <div>
-              <h1>${meal.strMeal}</h1>
+              <h1 class="recipe-title">${meal.strMeal}</h1>
               <img src="${meal.strMealThumb}" alt="Meal Image" width="500" height="500">
               <p>Category: ${meal.strCategory}</p>
               <p>Country: ${meal.strArea}</p>
-              <p>Id: ${meal.idMeal}</p>
               <p>Type of Food: ${meal.strTags}</p>
               <p>Ingredients:</p>
               ${ingredientsList.html()}
@@ -71,19 +105,22 @@ $(document).ready(() => {
             </div>
           `);
 
-          const recipeContainer = $('<div class="col-12 col-sm-6 col-md-8"></div>').append(recipeDetails);
+          $('#myButton').click(function() {
+            var selectedOption = $('#myDropdown').val();
+            alert('Selected option: ' + selectedOption);
+          });
+          const recipeContainer = $('<div class="recipe-details"></div>').append(recipeDetails);
 
-          display.append($('<div class="row"></div>').append(recipeCard, recipeContainer));
-
+          display.append(recipeContainer);
           clearButton.show();
         });
 
-        row.append(recipeCard);
+        recipeCardContainer.append(recipeCard);
       });
 
-      display.append(row);
+      display.append(recipeCardContainer);
     } else {
-      display.append('<p>Oops! No recipes found.</p>');
+      alert('Oops! No recipes found.');
     }
     clearButton.show();
   }
