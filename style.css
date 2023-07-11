@@ -238,9 +238,9 @@ footer {
   box-shadow: 0 4px 30px rgba(87, 153, 26, 0.8);
 }
 #recipe_name:hover{
-  padding: 20px;
+  padding: 10px;
   border: 7px solid rgba(42, 193, 100, 0.8);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(3px);
 }
 #submit_btn{
   height: 50px;
@@ -254,7 +254,7 @@ footer {
 #submit_btn:hover{
   padding: 10px;
   border: 4px solid rgba(42, 193, 100, 0.8);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(3px);
 }
 #btn_clear{
   height: 50px;
@@ -264,11 +264,13 @@ footer {
   border-radius: 16px;
   backdrop-filter: blur(1px);
   box-shadow: 0 4px 30px rgba(242, 1, 1, 0.8);
+  margin-top: 5px;
+  margin-right: 130px;
 }
 #btn_clear:hover{
-  padding: 10px;
+  padding: 7px;
   border: 4px solid rgba(242, 1, 1, 0.8);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(3px);
 }
 .recipe-card-container{
   display: flex;

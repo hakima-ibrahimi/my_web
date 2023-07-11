@@ -33,26 +33,8 @@ $(document).ready(() => {
       else{
         console.log('Oops:', error);
       }
-  });
-
-  function displayCountryData(data) {
-    display.empty();
-    if (data.meals) {
-  }
-  const recipeContainer = $('<div class="recipe-container"></div>');
-
-    data.meals.forEach((meal) => {
-     const myCard = $(`<div class="recipe-card card">
-     <div class="card-img-top">
-       <h5 class="card-title recipe-name">${meal.strMeal}</h5>
-       <img src="${meal.strMealThumb}" alt="Meal Image">
-     </div>
-     <div class="card-body">
-     </div>
-   </div>
- `);
-    };
-  function displayRecipeData(data) {
+   });
+   function displayRecipeData(data) {
     display.empty();
     if (data.meals) {
       const recipeCardContainer = $('<div class="recipe-card-container"></div>');
@@ -73,12 +55,10 @@ $(document).ready(() => {
           'color': 'black',
           'text-align': 'center',
           'margin-bottom': '10px'
-        });
-
-        recipeCard.on('click', () => {
-          display.empty();
-
-          const ingredientsList = $(`
+         });
+         recipeCard.on('click', () => {
+           display.empty();
+           const ingredientsList = $(`
             <ul>
               <li>${meal.strIngredient1} : ${meal.strMeasure1}</li>
               <li>${meal.strIngredient2} : ${meal.strMeasure2}</li>
@@ -88,9 +68,8 @@ $(document).ready(() => {
               <li>${meal.strIngredient6} : ${meal.strMeasure6}</li>
               <li>${meal.strIngredient7} : ${meal.strMeasure7}</li>
             </ul>
-          `);
-
-          const recipeDetails = $(`
+           `);
+           const recipeDetails = $(`
             <div>
               <h1 class="recipe-title">${meal.strMeal}</h1>
               <img src="${meal.strMealThumb}" alt="Meal Image" width="500" height="500">
@@ -116,18 +95,16 @@ $(document).ready(() => {
         });
 
         recipeCardContainer.append(recipeCard);
-      });
-
-      display.append(recipeCardContainer);
+       });
+       display.append(recipeCardContainer);
     } else {
       alert('Oops! No recipes found.');
     }
     clearButton.show();
-  }
-
-  clearButton.hide().on('click', (event) => {
-    event.preventDefault();
-    display.empty();
-    clearButton.hide();
+   }
+      clearButton.hide().on('click', (event) => {
+      event.preventDefault();
+      display.empty();
+     clearButton.hide();
   });
-});
+ });
